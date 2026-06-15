@@ -1,6 +1,7 @@
 
 use:
 configure set of scheduled tasks is key to keeping your server running well
+
 path:
         /etc/crontab
 
@@ -10,7 +11,7 @@ list out your user crontab entry
 
         crontab -l
  to see what’s actually scheduled.
- 
+
         ls /etc/cron.*
 
         ls  /etc/cron.daily
