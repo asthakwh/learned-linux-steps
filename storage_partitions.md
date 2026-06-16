@@ -9,3 +9,5 @@ manage disk partition in MBR modality
 manage disk partition in GPT modality
 
     sudo gdisk /dev/sda
+
+[configure LVM storage](https://github.com/asthakwh/linux-scripts-setups/blob/main/lvm-config.md)
