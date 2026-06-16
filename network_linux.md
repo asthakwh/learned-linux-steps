@@ -23,8 +23,8 @@ Show IP addresses configuration
 if change in ip address 
         
         ip link set eth0 down
-        `ip addr add 192.168.0.2/24 dev eth0` Assign IP 192.168.0.2/24 to interface eth0
-        `ip link set eth0 up` Restart interface eth0
+`ip addr add 192.168.0.2/24 dev eth0` Assign IP 192.168.0.2/24 to interface eth0
+`ip link set eth0 up` Restart interface eth0
 
 configure DNS servers entry
 
@@ -65,9 +65,9 @@ Firewall: managed by Kernel
 
         firewalld is a service that use iptables to manage firewalls rules
 
-        `firewall-cmd` is the command to manage firewalld
+        firewall-cmd #is the command to manage firewalld
 
-        `firewall-cmd --reload` # to reload configuration
+        firewall-cmd --reload # to reload configuration
         firewall-cmd --add-port 8000/tcp
         sudo systemctl stop firewalld
         systemctl disable firewalld
@@ -77,9 +77,27 @@ systemctl enable iptables
 to Show route
 `ip route show` or `route -n`
 
-NTP : on RHEL
+NTP : on 
 
-`chrony` is a flexible Network Time Protocol implementation
+A local server must use an NTP client to get the correct time from a remote NTP server
+
+        sudo yum -y install chrony   # [On CentOS/RHEL]
+        sudo apt install chrony      # [On Debian/Ubuntu]
+        sudo dnf -y install chrony   # [On Fedora 22+]
+
+NTP service `chrony` is a flexible Network Time Protocol implementation
+        
+        sudo nano /etc/chrony.conf # config file
+
+check status of chronyd
+
+        sudo systemctl status chronyd      [On SystemD]
+        /etc/init.d/chronyd status    [On Init]
+        sudo systemctl stop chronyd
+        sudo systemctl disable chronyd
+        sudo systemctl enable chronyd
+        sudo systemctl start chronyd
+
  and sync the system clock with NTP servers
  
         sudo yum install -y ntp
@@ -101,16 +119,5 @@ also allow from firewall
         sudo firewall-cmd --reload
 
 verify `timedatectl` or `date`
-A local server must use an NTP client to get the correct time from a remote NTP server
 
-        yum -y install chrony    [On CentOS/RHEL]
-        apt install chrony       [On Debian/Ubuntu]
-        dnf -y install chrony    [On Fedora 22+]
-check status of chronyd
 
-        sudo systemctl status chronyd      [On SystemD]
-        /etc/init.d/chronyd status    [On Init]
-        sudo systemctl stop chronyd
-        sudo systemctl disable chronyd
-        sudo systemctl enable chronyd
-        sudo systemctl start chronyd
