@@ -18,7 +18,10 @@ Show IP addresses configuration
         systemctl status network 
         systemctl restart network
 
-        nmtui
+N/M Text User Interface
+
+        sudo nmtui #modify and activate the connection
+        sudo systemctl start NetworkManager
 
 if change in ip address 
         
