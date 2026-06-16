@@ -63,9 +63,9 @@ Firewall: managed by Kernel
         #services - allowed to use interface
         #ports - allowed to use interface
 
-        firewalld is a service that use iptables to manage firewalls rules
+`firewalld` is a service that use iptables to manage firewalls rules
 
-        firewall-cmd #is the command to manage firewalld
+`firewall-cmd` is the command to manage `firewalld`
 
         firewall-cmd --reload # to reload configuration
         firewall-cmd --add-port 8000/tcp
